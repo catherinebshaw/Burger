@@ -1,9 +1,9 @@
-<ul class="burgerList">
+<ul>
     {{#each allBurgers }}
-    {{#unless Devoured}}
+    {{#unless devoured}}
     <li>
             {{id}}  {{name}}
-                <button class="devoured" data-id="{{this.id}}" data-devoured="{{this.devoured}}"> DEVOUR
+                <button type="button" class="devoured" data-id="{{id}}" data-devoured="{{devoured}}"> DEVOUR
                 </button>
     </li> 
     {{/unless}}
@@ -13,21 +13,20 @@
 </ul>
 <ul>
     {{#each allBurgers }}
-    {{#if Devoured}}
+    {{#if devoured}}
     <li>
-        {{name}}
-            <button class="hidden" data-id="{{this.id}}" data-devoured="{{this.devoured}}"> DEVOUR
-            </button>
+        {{name}} 
     </li> 
     {{/if}}
     {{/each}}       
 </ul>
 
 <div class="container" id="burgerInput">
-    <form data-id="{{this.id}}" id="create-form">
+    <form id="create-form">
         <div class="input-group mb-3">
-            <input type="text" id="newBurger" name="burger" class="form-control addBurgerBtn" placeholder="add Burger here..." aria-label="burger-name" aria-describedby="button-addon2">{{this.name}}
-            <button class="newBurgBtn btn-outline-secondary" type="button" id="button-addon2">Add Burger</button>
+            <label for="addBurger"></label>
+            <input type="text" id="newBurger" name="burger" placeholder="add Burger here..." aria-describedby="button-addon2">
+            <button class="newBurgBtn btn-outline-secondary" type="submit" value="0">Add Burger</button>
         </div>
     </form>
 </div>

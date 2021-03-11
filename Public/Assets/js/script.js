@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const newBurger = {
 
                 name: document.querySelector('#newBurger').value.trim(),
-                devoured: false,
+                devoured: 0,
             };
-            console.log(newBurger)
+            console.log(newBurger, `nanananana`)
 
             // Send POST request to create a new burger
             fetch('/api/burgers', {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 // make sure to serialize the JSON body
                 body: JSON.stringify(newBurger),
-            }).then((response) => {
+            }).then(() => {
             // Empty the form
             document.querySeletor('#newBurger').value = '';
 
@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     if(devour) {
         devour.forEach((button) => {
-            button.addEventListnere('click', (e) => {
+            button.addEventListener('click', (e) => {
                 const id = e.target.getAttribute('data-id');
                 const devoured = e.target.getAttribute('data-devoured');
+                console.log(`this is`, id, devoured)
                 
                 const updateBurger = {
-                    id: id,
-                    devoured: true
+                    devoured: 1
                 }
 
                 fetch(`/api/burgers/${id}`, {
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         },
                 
                     // ?? do we need to stringify - boolean 
-                    body: JSON.stringify(devoured),
+                    body: JSON.stringify(updateBurger),
                 }).then((response) => {
                     // Check that the response is all good
                     // Reload the page so the user can see the burger has been eaten
                     if (response.ok) {
-                        console.log(`changed devoured to: ${true}`);
+                        console.log(`changed devoured to: ${devoured}`);
                         location.reload('/');
                         } else {
                             alert('something went wrong!');
@@ -78,4 +78,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     }
 
-}
+})

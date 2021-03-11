@@ -1,27 +1,4 @@
 const orm = require('../config/orm.js');
-//const { selectAll, insertOne, updateOne } =
-
-//code that will call the ORM functions
-// SelectAll, insertOne, updateOne
-// class Burger{ 
-//     constructor(id, name, devour) {
-//         this.id = id,
-//         this.name = name,
-//         this.devour = devour
-//     }
-
-//     getAll() {
-//         return orm.selectAll();
-//     }
-
-//     getAdd(name){
-//         return orm.insertOne(name);
-//     }
-
-//     getDevoured(name){
-//         return orm.updateOne(name);
-//     }
-// }
 
 var burger={
     getAll:async function(){
@@ -39,11 +16,7 @@ module.exports =  burger;
 
 
 
-// app.get( '/api/burger', async function( req, res ){
-//     const burgerList = await orm.selectAll()
-//     console.log( `[GET /api/burger] burgerList`)
-//     res.render('index', burgerList)
-// })
+
 
 // app.post( '/api/burger', async function( req, res ){
 //     const burgerInfo = req.body
