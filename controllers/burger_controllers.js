@@ -1,44 +1,39 @@
 const express = require('express');
-const orm = require('../../utor-tor-fsf-ft-01-2021-u-c/13-MVC/01-Activities/17-CatsApp/Solved/config/orm');
+const orm = require('../config/orm');
 const router = express.Router();
 
 // bring in reference to our MODEL (and ORM)
 const Burger = require('../models/burger'); 
 
 // create routs and set up logic
+
+//RETRIEVE existing burgers in the database and post on index 
 router.get('/', async function(req, res) {
     const allBurgers = await Burger.getAll();
     console.log(allBurgers)
     res.render("index", { allBurgers: allBurgers});
 });
-//Routes===================================
-router.get( '/burgers', async function( req, res){
-    const burgerList = await 
-    res.send(burgerList)
-})
 
+// CREATE a new burger in the database
 router.post( '/burgers', async function( req, res){
-    //refresh array of burgers 
-    const allBurgers = await Burger.getAll();
+    console.log( ` [POST /api/burgers]`, req.body)
     
-    //register new burger info as captured on index page set devour to false as default
     const newBurger = {
-        id: allBurgers.length,
         name: req.body,
-        devour: false,
     }
-    console.log( ` [POST /api/burgers] list of burgers`, allBurgers)
-    console.log(`[submit button pushed] Here is the new burger`, newBurger)
-    
+    console.log(`[submit button pushed] Now ${allBurgers.length} burgers, andding`, newBurger)
     //adding new burger to list of all burgers
-    allBurgers.push( newBurger) 
-    const result = await orm.insertOne( id, name, devour)
-    res.send(newBurger)
-
+    allBurgers.push( newBurger ) 
+    const result = await orm.insertOne(newBurger.name)
+    res.send(result)
+    res.render('index')
 
 })
 
 router.put('/burgers/:id',async function(req,res){
+
+    //if devour button clicked change devour to "true"
+    const result = await orm.updateOne(id)
 
 })
 

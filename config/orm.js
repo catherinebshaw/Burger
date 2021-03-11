@@ -10,7 +10,7 @@ function insertOne(name){
 }
 
 
-function updateOne(id ){
+function updateOne(id){
     return dbConnect.query( `UPDATE burgers SET devoured = true WHERE id= ${id};`  ) 
 }
 

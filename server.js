@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3000
 
 
 app.engine('handlebars', exphbs())
+// do I need to set the handlbars default layout to main
+//app.enging('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars')
 
 
