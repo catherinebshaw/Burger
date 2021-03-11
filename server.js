@@ -11,13 +11,13 @@ app.set('view engine', 'handlebars')
 
 
 //share any static html with brower
-app.use( express.static('html'))
+app.use( express.static('Public'))
 
 //accept incoming post requests
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
-app.use('/api', require('./controllers/burger_controllers'))
+app.use('/', require('./controllers/burger_controllers'))
 
 
 //Listener============================================

@@ -3,19 +3,39 @@ const orm = require('../config/orm.js');
 
 //code that will call the ORM functions
 // SelectAll, insertOne, updateOne
-class Burger{ 
-    constructor(id, name, devour) {
-        this.id = id,
-        this.name = name,
-        this.devour = devour
-    }
+// class Burger{ 
+//     constructor(id, name, devour) {
+//         this.id = id,
+//         this.name = name,
+//         this.devour = devour
+//     }
 
-    getAll() {
-        return orm.selectAll();
+//     getAll() {
+//         return orm.selectAll();
+//     }
+
+//     getAdd(name){
+//         return orm.insertOne(name);
+//     }
+
+//     getDevoured(name){
+//         return orm.updateOne(name);
+//     }
+// }
+
+var burger={
+    getAll:async function(){
+        return await orm.selectAll()
+    },
+    getAdd: async function(name){
+        return await orm.insertOne(name)
+    },
+    getDevoured: async function(name){
+        return await orm.updateOne(name)
     }
 }
 
-module.exports = new Burger();
+module.exports =  burger;
 
 
 

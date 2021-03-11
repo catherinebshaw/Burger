@@ -1,7 +1,32 @@
-<ol>
+<ol class="burgerList">
     {{#each allBurgers }}
+    {{!-- {{#unless Devoured}}--}}
     <li>
-        <p>{{this.name}}</p>
-    </li>
-    {{/each }}
+            {{this.name}}
+                <button class="devoured" data-id="{{this.id}}" data-devoured="{{this.devoured}}"> DEVOUR
+                </button>
+    </li> 
+    {{!-- {{> burgers/burger-block devoured=false}} --}}
+    {{!-- {{/unless}} --}} 
+    {{/each}} 
+
+
 </ol>
+<ul>
+    {{#each allBurgers }}
+    {{!-- {{#if Devoured}} --}}
+  {{!-- {{> burgers/burger-block devoured=true}} --}}
+    {{!-- {{/if}} --}}
+    {{/each}}       
+</ul>
+
+<div class="container" id="burgerInput">
+    <form id="create-form">
+        <div class="input-group mb-3">
+            <input type="text" id="newBurger" class="form-control addBurgerBtn" placeholder="make it delicious" aria-label="burger-name" aria-describedby="button-addon2">
+            <button class="newBurgBtn btn-outline-secondary" type="button" id="button-addon2">Add Burger</button>
+        </div>
+    </form>
+</div>
+
+
