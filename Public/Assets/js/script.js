@@ -3,11 +3,48 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if (event) {
     console.info('DOM loaded');
   }
-  
-  // CREATE A BURGER
-  const addBurgerBtn = document.getElementById('create-form');
 
-  if (addBurgerBtn) {
+    // UPDATE 
+    const devour = document.querySelectorAll('.devoured')
+
+    if(devour) {
+        devour.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                const devoured = e.target.getAttribute('data-devoured');
+                console.log(`this is`, devoured)
+                
+                // const updateBurger = {
+                //     devoured: 1
+                // }
+
+                fetch(`/api/burgers/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    // ?? do we need to stringify - boolean 
+                //     body: JSON.stringify(),
+                // }).then((response) => {
+                //     // Check that the response is all good
+                //     // Reload the page so the user can see the burger has been eaten
+                //     if (response.ok) {
+                console.log(`[PUT] changed to devoured ${devoured}`);
+                location.reload('/');
+                //     } else {
+                //         alert('something went wrong!');
+                //         }
+                // });
+            })
+        })
+
+    }
+    // CREATE A BURGER
+    const addBurgerBtn = document.getElementById('create-form');
+
+    if (addBurgerBtn) {
         addBurgerBtn.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -17,7 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 name: document.querySelector('#newBurger').value.trim(),
                 devoured: 0,
             };
-            console.log(newBurger, `nanananana`)
+            console.log(newBurger)
 
             // Send POST request to create a new burger
             fetch('/api/burgers', {
@@ -38,44 +75,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             location.reload('/');
             });
         });
-    }      
-
-    // UPDATE 
-    const devour = document.querySelectorAll('.devoured')
-
-    if(devour) {
-        devour.forEach((button) => {
-            button.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                const devoured = e.target.getAttribute('data-devoured');
-                console.log(`this is`, id, devoured)
-                
-                const updateBurger = {
-                    devoured: 1
-                }
-
-                fetch(`/api/burgers/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                        },
-                
-                    // ?? do we need to stringify - boolean 
-                    body: JSON.stringify(updateBurger),
-                }).then((response) => {
-                    // Check that the response is all good
-                    // Reload the page so the user can see the burger has been eaten
-                    if (response.ok) {
-                        console.log(`changed devoured to: ${devoured}`);
-                        location.reload();
-                        } else {
-                            alert('something went wrong!');
-                        }
-                });
-            })
-        })
-
-    }
-
+    }    
 })
+
