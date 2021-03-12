@@ -12,11 +12,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             button.addEventListener('click', (e) => {
                 const id = e.target.getAttribute('data-id');
                 const devoured = e.target.getAttribute('data-devoured');
-                console.log(`this is`, devoured)
-                
-                // const updateBurger = {
-                //     devoured: 1
-                // }
 
                 fetch(`/api/burgers/${id}`, {
                     method: 'PUT',
@@ -25,18 +20,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         'Content-Type': 'application/json',
                     }
                 })
-                    // ?? do we need to stringify - boolean 
-                //     body: JSON.stringify(),
-                // }).then((response) => {
-                //     // Check that the response is all good
-                //     // Reload the page so the user can see the burger has been eaten
-                //     if (response.ok) {
-                console.log(`[PUT] changed to devoured ${devoured}`);
+                // Reload the page so the user can see the burger has been eaten
+                console.log(`[PUT] changed to devoured`);
                 location.reload('/');
-                //     } else {
-                //         alert('something went wrong!');
-                //         }
-                // });
+              
             })
         })
 
@@ -48,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         addBurgerBtn.addEventListener('submit', (e) => {
         e.preventDefault();
 
-            // Grabs the value of the textarea that goes by the name, "burger-name" 
+            // Grabs the value in the textarea and creates new object 
             const newBurger = {
 
                 name: document.querySelector('#newBurger').value.trim(),
@@ -71,7 +58,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('newBurger').value = '';
 
             // Reload the page so the user can see the new quote
-            console.log('Created a new burger!');
+            console.log('[POST] Created a new burger!');
             location.reload('/');
             });
         });
