@@ -1,31 +1,35 @@
-<ul>
-    {{#each allBurgers }}
-    {{#unless devoured}}
-    <li>
-            {{id}}  {{name}}
+<div class="row">
+    <div class="col-6 ">
+        <h4>Ready to Eat</h4>
+        <ul id="notEaten">
+            {{#each allBurgers }}
+            {{#unless devoured}}
+            <li >
+                {{id}}  {{name}}
                 <button type="button" class="devoured" data-id="{{id}}" data-devoured="{{devoured}}"> DEVOUR
                 </button>
-    </li> 
-    {{/unless}}
-    {{/each}} 
-
-
-</ul>
-<ul>
-    {{#each allBurgers }}
-    {{#if devoured}}
-    <li>
-        {{name}} 
-    </li> 
-    {{/if}}
-    {{/each}}       
-</ul>
-
+            </li> 
+            {{/unless}}
+            {{/each}} 
+        </ul>
+    </div>
+    <div id="eaten" class="col-6">
+        <h4>Devoured</h4>
+        <ul  id="eaten">
+            {{#each allBurgers }}
+            {{#if devoured}}
+            <li>
+                {{name}} 
+            </li> 
+            {{/if}}
+            {{/each}}       
+        </ul>
+    </div>
+</div>
 <div class="container" id="burgerInput">
     <form id="create-form">
-        <div class="input-group mb-3">
-            <label for="addBurger"></label>
-            <input type="text" id="newBurger" name="burger" placeholder="add Burger here..." aria-describedby="button-addon2">
+        <div class="input-group" id="addBurger">
+            <input type="text" id="newBurger" name="burger" placeholder="add Burger here..." class="form-control" aria-describedby="button-addon2">
             <button class="newBurgBtn btn-outline-secondary" type="submit" value="0">Add Burger</button>
         </div>
     </form>

@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 body: JSON.stringify(newBurger),
             }).then(() => {
             // Empty the form
-            document.querySeletor('#newBurger').value = '';
+            document.getElementById('newBurger').value = '';
 
             // Reload the page so the user can see the new quote
             console.log('Created a new burger!');
-            location.reload();
+            location.reload('/');
             });
         });
     }      
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     // Reload the page so the user can see the burger has been eaten
                     if (response.ok) {
                         console.log(`changed devoured to: ${devoured}`);
-                        location.reload('/');
+                        location.reload();
                         } else {
                             alert('something went wrong!');
                         }

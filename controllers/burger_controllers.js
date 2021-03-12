@@ -29,9 +29,9 @@ router.post( '/api/burgers', async function( req, res){
     //adding new burger to list of all burgers
     // allBurgers.push( newBurger ) 
     orm.insertOne(newBurger.name, newBurger.devoured)
-    location.reload()
+    // location.reload()
     // res.redirect( 'main')
-    // res.render('index')
+    res.render('index')
 
 })
 
