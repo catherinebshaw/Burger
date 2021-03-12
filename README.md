@@ -12,7 +12,7 @@ This program is deployed in the terminal using Node, Express and Express Handleb
 
 ## Mock Up
 
-![Mock Up] (https://catherinebshaw.github.io/Burger/tree/main/public/assets/Burger_ScreenShot.png)
+![Burger Photo with two lists of names] (https://catherinebshaw.github.io/Burger/tree/main/public/assets/Burger_ScreenShot.png)
 
 ## Live Site
 
