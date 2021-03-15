@@ -16,7 +16,7 @@ This program is deployed in the terminal using Node, Express and Express Handleb
 
 ## Live Site
 
-[Burger](https://catherinebshaw@github.io/burger/)
+[Burger]
 
 
 
