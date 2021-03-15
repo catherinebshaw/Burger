@@ -13,7 +13,7 @@ app.set('view engine', 'handlebars')
 
 
 //share any static html with brower
-app.use( express.static('Public'))
+app.use( express.static('public'))
 
 //accept incoming post requests
 app.use(express.urlencoded({ extended: true}))
