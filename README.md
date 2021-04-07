@@ -12,11 +12,11 @@ This program is deployed in the terminal using Node, Express and Express Handleb
 
 ## Mock Up
 
-![Burger Photo with two lists of names](https://github.com/catherinebshaw/Burger/blob/main/Public/Assets/img/Burger_ScreenShot.png)
+![Photo of Eat the Burger App](https://github.com/catherinebshaw/Burger/blob/main/public/assets/img/Burger_ScreenShot.png)
 
 ## Live Site
 
-[Burger]
+[Burger](https://burger-cs.herokuapp.com/)
 
 
 
